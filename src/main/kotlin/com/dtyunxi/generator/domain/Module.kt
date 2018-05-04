@@ -51,29 +51,22 @@ class Module : SuperEntity() {
     var locales: String? = null
 
     @Transient
-    var fields: List<Field>? = null
+    var fields: List<Field> = ArrayList()
 
     @Transient
-    var relationships: List<Relationship>? = null
+    var relationships: List<Relationship> = ArrayList()
 
     @Transient
     @JsonProperty("locales")
-    private var localesJson: List<String>? = null
-        /*get() {
+    var localesJson: List<String>? = null
+        get() {
             if (field == null && locales != null) {
                 field = JSONArray(locales).toList() as List<String>?
             }
             return field
-        }*/
+        }
         set(value) {
             field = value
             this.locales = JSONArray(value).toString()
         }
-
-    fun getLocalesJson():List<String>?{
-        if(localesJson == null && locales != null){
-            localesJson = JSONArray(locales).toList() as List<String>?
-        }
-        return localesJson
-    }
 }

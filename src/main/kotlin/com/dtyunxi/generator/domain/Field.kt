@@ -1,7 +1,6 @@
 package com.dtyunxi.generator.domain
 
 import com.dtyunxi.generator.constant.ColumnTypeEnum
-import com.dtyunxi.generator.constant.UpdateMarkEnum
 import com.dtyunxi.generator.constant.ValidateTypeEnum
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
@@ -11,12 +10,11 @@ import org.hibernate.annotations.SQLDelete
 import org.hibernate.annotations.Where
 import org.json.JSONArray
 import org.json.JSONObject
-
+import java.io.IOException
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
 import javax.persistence.Transient
-import java.io.IOException
 
 /**
  * @author luo.qianhong
@@ -60,7 +58,7 @@ class Field : SuperEntity() {
      * 是否支持多语
      */
     @Column(columnDefinition = "boolean")
-    var multiLanguage: Boolean? = false
+    var multiLanguage: Boolean = false
 
     /**
      * 校验类型
@@ -118,7 +116,7 @@ class Field : SuperEntity() {
 
     @Transient
     @JsonProperty("title")
-    private var titleJson: Map<String, Any>? = null
+    var titleJson: Map<String, Any>? = null
         get() {
             if (field == null && title != null) {
                 field = JSONObject(title).toMap()
@@ -132,7 +130,7 @@ class Field : SuperEntity() {
 
     @Transient
     @JsonProperty("validateMessage")
-    private var validateMessageJson: Map<String, Any>? = null
+    var validateMessageJson: Map<String, Any>? = null
         get() {
             if (field == null && validateMessage != null) {
                 field = JSONObject(validateMessage).toMap()
@@ -146,7 +144,7 @@ class Field : SuperEntity() {
 
     @Transient
     @JsonProperty("enumValues")
-    private var enumValuesJson: Array<EnumValue>? = null
+    var enumValuesJson: Array<EnumValue>? = null
         get() {
             if (field == null && enumValues != null) {
                 try {

@@ -2,8 +2,7 @@ package com.dtyunxi.generator.generator
 
 
 import com.dtyunxi.generator.domain.Module
-
-import java.util.zip.ZipOutputStream
+import org.apache.tools.zip.ZipOutputStream
 
 
 /**

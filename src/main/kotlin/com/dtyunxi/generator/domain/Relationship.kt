@@ -8,12 +8,11 @@ import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.hibernate.annotations.SQLDelete
 import org.hibernate.annotations.Where
-
+import java.io.IOException
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
 import javax.persistence.Transient
-import java.io.IOException
 
 /**
  * @author luo.qianhong
@@ -44,7 +43,7 @@ class Relationship : SuperEntity() {
 
     @Transient
     @JsonProperty("refField")
-    private var refFieldJson: LinkField? = null
+    var refFieldJson: LinkField? = null
         set(value) {
             field = value
             try {
@@ -67,7 +66,7 @@ class Relationship : SuperEntity() {
 
     @Transient
     @JsonProperty("showField")
-    private var showFieldJson: Array<LinkField>? = null
+    var showFieldJson: Array<LinkField>? = null
         get() {
             if (field == null && showField != null) {
                 try {

@@ -50,6 +50,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-configuration-processor')
     compile('com.fasterxml.jackson.module:jackson-module-kotlin')
+    compile 'org.apache.ant:ant:1.10.3'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile group: 'org.apache.commons', name: 'commons-text', version: '1.3'
